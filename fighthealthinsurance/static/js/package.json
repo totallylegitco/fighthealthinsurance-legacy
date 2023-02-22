@@ -2,14 +2,15 @@
   "name": "fuck",
   "version": "1.0.0",
   "description": "Fuck Around and Find Out",
-  "main": "index.js",
+  "main": "scan.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "tsc --watch & nodemon dist"
   },
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "pdf.js": "^0.1.0",
+    "pdfjs-dist": "^3.3.122",
     "tensorflow.js": "^0.0.0",
     "tesseract.js": "^4.0.2"
   }

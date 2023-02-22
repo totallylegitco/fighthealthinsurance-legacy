@@ -75,3 +75,12 @@ class Denial(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=True)
     denial_type = models.ManyToManyField(DenialTypes, through=DenialTypesRelation)
     regulator = models.ManyToManyField(Regulator, through=DenialRegulatorRelation)
+
+
+class ConsumerAssistancePrograms(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=300, primary_key=False)
+    website = models.CharField(max_length=300, primary_key=False)
+    alt_name = models.CharField(max_length=300, primary_key=False)
+    regex = RegexField(max_length=400, re_flags=re.IGNORECASE | re.UNICODE | re.M)
+    negative_regex = RegexField(max_length=400, re_flags=re.IGNORECASE | re.UNICODE | re.M)

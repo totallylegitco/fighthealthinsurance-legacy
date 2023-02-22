@@ -8,6 +8,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views import View
+from fighthealthinsurance.forms import DenialForm
 
 class ScanView(View):
     def get(self, request):
@@ -15,7 +16,8 @@ class ScanView(View):
             request,
             'image_recognize.html',
             context={
-                'title': "Scan Your Health Insurance Denial"
+                'title': "Scan Your Health Insurance Denial",
+                'form': DenialForm(),
             })
 
 
@@ -67,4 +69,13 @@ class RecommendAppeal(View):
 
 class ProcessView(View):
     def post(self, request):
-        return render(request, '')
+        denial_form = DenialForm(request)
+        if not denial_form.is_valid():
+            return render(request, 'image_recognize.html',
+            context={
+                'title': "Scan Your Health Insurance Denial",
+                'form': denial_form,
+            })
+
+        else:
+            return render(request, '')

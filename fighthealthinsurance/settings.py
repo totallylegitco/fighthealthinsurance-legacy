@@ -72,6 +72,7 @@ class Base(Configuration):
         "compressor_toolkit",
         'django_extensions',
         "static_thumbnails",
+#        'captcha',
     ]
 
     COMPRESS_JS_FILTERS = [
