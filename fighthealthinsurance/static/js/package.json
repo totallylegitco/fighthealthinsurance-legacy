@@ -4,15 +4,17 @@
   "description": "Fuck Around and Find Out",
   "main": "scan.tsx",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "tsc --watch & nodemon dist"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc --watch & nodemon dist"
   },
-  "type": "module",
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "pdfjs-dist": "^3.3.122",
     "tensorflow.js": "^0.0.0",
     "tesseract.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0"
   }
 }

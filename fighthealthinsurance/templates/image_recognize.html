@@ -2,7 +2,15 @@
 {% load compress %}
 {% load static %}
 {% block scriptmagic %}
-<script src='{% static "js/scan.js" %}'></script>
+<script type="importmap">
+  {
+      "imports": {
+	  "tesseract.js": "{% static 'js/node_modules/tesseract.js/dist/tesseract.min.js' %}",
+	  "pdfjs-dist": "{% static 'js/node_modules/pdfjs-dist/build/pdf.min.js' %}"
+      }
+  }
+</script>
+<script type="module" src='{% static "js/scan.js" %}'></script>
 {% endblock scriptmagic %}
 {% block content %}
 <button id="clear_local"

@@ -1,5 +1,5 @@
 import * as Tesseract from 'tesseract.js';
-import PDFJS from "pdfjs-dist";
+import * as PDFJS from "pdfjs-dist";
 
 var scrubRegex: [RegExp, string][] = [
     [new RegExp("^\\W*patents?:?\\s+\\w+", "gmi"), "Patient: patient_name"],
