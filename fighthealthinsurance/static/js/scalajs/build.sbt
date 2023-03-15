@@ -14,12 +14,18 @@ jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
 
 enablePlugins(ScalaJSBundlerPlugin)
 
-npmDependencies in Compile += "pdf.js" -> "0.1.0"
-npmDependencies in Compile += "tesseract.js" -> "4.0.2"
-npmDependencies in Compile += "tensorflow.js" -> "0.0.0"
-
 scalaJSUseMainModuleInitializer := true
 
 // uTest settings
 libraryDependencies += "com.lihaoyi" %%% "utest" % "0.8.1" % "test"
 testFrameworks += new TestFramework("utest.runner.Framework")
+
+// ScalablyTypedconverterplugin is GPLv3 licensed
+enablePlugins(ScalablyTypedConverterPlugin)
+
+
+Compile / npmDependencies ++= Seq(
+  "@pdfme/generator" -> "1.1.9",
+  "pdfjs-dist" -> "3.4.120",
+  "tesseract.js" -> "4.0.2",
+)
